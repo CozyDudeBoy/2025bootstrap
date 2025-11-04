@@ -1,0 +1,16 @@
+
+pc해상도와 mobile해상도에 따른 이미지 변경
+
+방법1. css를 활용하여 이미지 변경
+
+<a href="#" title="">
+<picture>
+  <source srcset="모바일 버전 이미지 주소" media="(max-width:768px)">
+  <img src="pc, tablet 해상도일 경우 이미지 주소" alt="">
+</picture>
+</a>
+
+방법2. css 서식만으로 크기값을 조정하여 맞추기
+
+
+방법3. 화면스크롤 이벤트(resize)를 사용하여 이미지 교체
