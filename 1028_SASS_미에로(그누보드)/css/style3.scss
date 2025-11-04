@@ -1,0 +1,48 @@
+//style3.scss
+
+$width1:1200px;
+$width2:1024px; //테블릿 큰거
+$width3:390px;
+$width4:768px;//테블릿 작은거
+
+// 박스 기본 서식
+@mixin box{
+  height: 50px;
+  border: 3px solid #000;
+  margin-bottom: 20px;
+}
+
+// div 서식 적용하기
+div{
+  @include box;
+}
+.pc{
+  width: $width1;
+  background-color: if($width1>500, pink,lightblue);
+}
+.tablet{
+  width: $width2;
+    background-color: if($width2>500, pink,lightblue);
+}
+.mobile{
+  width: $width3;
+    background-color: if($width3>500, pink,lightblue);
+}
+
+.box03{
+  width: $width4;//768
+  @if($width4>=767){
+    background-color: pink;
+  }@else{
+    background-color: lightblue;
+  }
+}
+
+.box04{
+  width: $width2;//1024
+  @if($width2>=1024){
+    background-color: #ff0;
+  }@else{
+    background-color: #ccc;
+  }
+}

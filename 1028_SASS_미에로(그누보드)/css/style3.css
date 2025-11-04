@@ -1,0 +1,30 @@
+div {
+  height: 50px;
+  border: 3px solid #000;
+  margin-bottom: 20px;
+}
+
+.pc {
+  width: 1200px;
+  background-color: pink;
+}
+
+.tablet {
+  width: 1024px;
+  background-color: pink;
+}
+
+.mobile {
+  width: 390px;
+  background-color: lightblue;
+}
+
+.box03 {
+  width: 768px;
+  background-color: pink;
+}
+
+.box04 {
+  width: 1024px;
+  background-color: #ff0;
+}/*# sourceMappingURL=style3.css.map */

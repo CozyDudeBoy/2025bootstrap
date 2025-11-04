@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_sass문법_반복문.while, each, for</title>
+  <link rel="stylesheet" href="./css/style4.css" type="text/css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <h2>04_sass문법_반복문</h2>
+  <ul>
+    <li>for</li>
+    <li>while</li>
+    <li>each</li>
+  </ul>
+
+  <h3>1 @for 문</h3>
+  <p>@for 키워드는 스타일을 반복적으로 출력하는데 사용됩니다.</p>
+  <p>javascript의 for문과 유사합니다</p>
+  <pre>
+    문법1)
+    trough : 종료 만큼 반복
+    @for $변수 from 시작 through 종료{
+      //반복할 내용
+    }
+    
+    문법2)
+    to : 종료 전까지 반복
+    @for $변수 from 시작 to 종료{
+    //반복할 내용
+    }
+  </pre>
+  <p>$변수 => #{변수}</p>
+  <p>#{변수}는 코드 어디든지 변수 값을 사용할 수 있습니다</p>
+  <p>적용 예) $img:unquote('./img/#{$img}');</p>
+  <p>h1{background-image:url('./img/#{$img}');}</p>
+
+  <h3>@for문 실습 - through</h3>
+  <p>div태그가 가로폭을 50px ~ 25px까지 각각 서식이 적용되게 하기</p>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+
+  <p>through는 마지막 번째까지 서식이 적용되고, to는 마지막 바로 전까지만 서식이 적용됨.</p>
+
+  <h3>2 @while 문</h3>
+
+  <h3>3 @each 문</h3>
+
+  <h3>실습예제 - 스타벅스 질문과 답변 목록 반복문을 사용하여 
+    제목은 글자색 '초록', 답변에는 배경색 '회색'을 적용하기
+  </h3>
+
+  <article class="qna">
+    <h3>자주하는 질문</h3>
+    <p><span>스타벅스 카드</span>에 대한 궁금점이 많으신가요? 고객님의 문의사항에 대한 답변을 빠르게 찾으실 수 있습니다</p>
+    <p class="searchbox">
+      <input type="search" id="search"><label for="search">검색</label>
+    </p>
+    <dl>
+      <dt>Q. [스타벅스 삼성카드] 스타벅스 선불카드 충전 결제 시에도 별 적립을 받을 수 있나요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스 삼성카드 신용카드로 스타벅스 선불카드 충전 시 3만원 당 별 1개가 적립됩니다. (스타벅스 삼성카드 체크카드는 제외)</dd>
+      <dt>Q. [스타벅스 삼성카드] 스타벅스 삼성카드를 사용해서 적립되어야 하는 별이 들어오지 않았는데, 어떻게 확인해야 하나요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스 삼성카드 사용에 따른 별 적립은 매출전표 매입 시점을 기준으로 당월 이용금액 누적 시점마다 영업일 기준 1~2일 후 적립됩니다.
+스타벅스 삼성카드 사용 실적에 따라 적립되는 별 개수에 대한 문의는 삼성카드 고객센터 (1588-8700)으로 문의 부탁드리며, 이미 적립이 완료된 별에 대한 확인은 스타벅스 App 또는 스타벅스 홈페이지에서 확인이 가능합니다.</dd>
+      <dt>Q. [스타벅스 삼성카드] 스타벅스 삼성카드 신용/체크 각각의 혜택은 무엇인가요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 1) 스타벅스 삼성카드 신용카드
+- 스타벅스 내 결제: 1만원 당 별 5개 (기간 내 누적 금액 기준, 월 한도 별 50개, 스타벅스 선불카드 충전은 3만원 당 별 1개)
+- 스타벅스 외 결제 (이커머스, 통신, 백화점, 생활편의 업종): 3만원 당 별 1개 (기간 내 누적 금액 기준, 월 한도 별 100개)
+- 전월 실적 50만원 (실적 조건 미달 시, 스타벅스 내 결제 3만원 당 별 1개)
+
+2) 스타벅스 삼성카드 체크카드
+- 스타벅스 내 결제: 1만원 당 별 2개 (기간 내 누적 금액 기준, 월 한도 별 10개, 스타벅스 선불카드 충전 제외)
+- 스타벅스 외 결제 ( 이커머스, 통신, 백화점, 생활편의 업종): 2만원 당 별 1개 (기간 내 누적 금액 기준, 월 한도 업종 당 4개로 총 16개)
+- 전월 실적 30만원</dd>
+      <dt>Q. [스타벅스 삼성카드] 신세계포인트와의 중복 혜택이 가능한가요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스 삼성카드로 결제 시, 아래의 표와 같이 신세계포인트 사용과 적립이 가능합니다.
+</dd>
+      <dt>Q. [스타벅스 삼성카드] 카드 사용 방법에 따른 별은 어떻게 적립되나요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스 삼성카드로 결제 시, 아래의 표와 같이 별이 적립됩니다.</dd>
+      <dt>Q. [스타벅스 삼성카드] 스타벅스 삼성카드 별 적립 시점은 어떻게 되나요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 1) 스타벅스 삼성카드 별
+- 매출전표 매입 기준 당월 이용 금액 누적 시점마다 1-2 영업일 후 스타벅스 회원 계정으로 적립
+
+2) 스타벅스 방문별, 에코별, 유니버스 클럽 별, 이벤트 별
+- 스타벅스 카드와 적립되는 시점 동일</dd>
+      <dt>Q. [스타벅스 삼성카드] 스타벅스 카드 충전없이도 방문별이 적립되는 카드라고 했는데 스타벅스 카드가 주는 모든 별 혜택이 동일하게 지급되나요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스 삼성카드는 기존 결제액에 따른 별 제공 혜택에서 한층 업그레이드하여 간편결제에 등록된 스타벅스 삼성카드로 결제할 경우, 만원 별을 제외한 방문 별, 에코 별, 유니버스 클럽 별, 이벤트 별이 제공됩니다. 또한 원모어 커피 등 스타벅스 리워드 회원 전용 혜택도 제공되며, 각 이벤트 혜택의 제공 여부는 이벤트 페이지를 참고 부탁드립니다.</dd>
+      <dt>Q. [스타벅스 삼성카드] 스타벅스 회원이 아니어도 발급받을 수 있나요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스 회원이 아닌 경우 발급이 불가하며, 비회원의 경우 스타벅스 발급 페이지로 이동하여 회원 가입 후 카드 발급 가능합니다.
+휴면회원의 경우 본인인증을 통해 휴면 해제 후 발급이 가능합니다.</dd>
+      <dt>Q. [간편결제] 등록된 카드나 계좌의 삭제나 서비스 해지는 어떻게 할 수 있나요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. APP > Other > Pay > 결제수단 관리 메뉴에서 등록된 카드나 계좌를 밀어서 삭제하거나, 하단 [서비스 해지] 버튼을 통해 서비스를 해지할 수 있습니다.
+단, 각 결제수단으로 설정된 자동결제가 있는 경우, 설정된 자동결제를 해지한 후 결제수단 삭제나 서비스 해지가 가능합니다.</dd>
+      <dt>Q. [간편결제] 스타벅스 APP의 간편결제란 무엇인가요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스 모바일 APP에 본인 명의의 계좌 혹은 신용/체크 카드를 등록하고, 결제 시 사용할 수 있는 기능입니다.</dd>
+      <dt>Q. [스타벅스 삼성카드] 스타벅스 삼성카드는 무엇인가요? <i class="fas fa-angle-down"></i></dt>
+      <dd>A. 스타벅스와 삼성카드가 제휴하여 출시한 PLCC(Private Label Credit Card)로 스타벅스 혜택이 강화된 제휴카드입니다. 신용, 체크로 구분되어 있으며 중복 발급이 가능하여 1인당 체크카드 1개, 신용카드 1개 총 최대 2개까지 발급 가능합니다. 전월 실적 충족 시 당월 누적 카드 이용금액 당 스타벅스 삼성카드 별이 적립됩니다. 또한 스타벅스 App 내 간편 결제에 등록된 스타벅스 삼성카드로 결제 시 충전 없이도 방문 별, 에코 별, 유니버스클럽 별, 이벤트 별 등 스타벅스 카드에 준하는 수준의 별 적립 및 이벤트 혜택을 받을 수 있습니다.
+
+카드 신청 및 상품에 대한 상세 안내는 삼성카드 홈페이지 또는 스타벅스 홈페이지 배너 및 상세 내용에 대한 별도 안내 페이지를 통해 확인 부탁드립니다. (삼성카드 고객센터 : 1588-8700)</dd>
+    </dl>
+  </article>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('dd').hide(); //시작하자마자 답변 숨김
+
+      $('dt').click(function(){//질문 클릭시
+        const icon =$(this).find('i');//클릭한 질문에 자식요소 i를 찾음
+        const a = $(this).next('dd');//클릭한 질문에 다음인 답변을 찾음
+
+        icon.toggleClass('fa-angle-down fa-angle-up');//찾은 자식요소 toggle효과로 클래스 변경반복
+
+        a.slideToggle(300);//찾은 다음 형제요소 슬라이드 toggle효과 반복
+      });
+
+      // // 선생님 풀이
+      // // 1. 변수 선언(제목)
+      // let que = $('.qna dt');
+
+      // //첫번째 질문에 대한 답변이 보이게
+      // $('.qna dt').first().next().show();
+      // // 첫번쨰 질문에 아이콘 모양에 act클래스를 적용해서 반대로 회전
+      // $('.qna dt').first().find('i.fas').addClass('act');
+
+      // //2. 클릭 이벤트
+      // $('.que dt').click(function(){
+      //   //선택한 질문다음 요소를 보이게하고 다른 답변은 숨긴다
+      //   $(this).next().slideDown().siblings('dd').slideUp;
+
+      //   // 선택한 질문의 자식요소 i.fas에 act서식을 적용하고 i.fas의 부모요소의 형제요소들 안에서 i.fas를 찾아 act서식을 제거한다
+      //   $(this).find('i.fas').addClass('act').parent().siblings().find('i.fas').removeClass('act');
+      // });
+    });
+
+  </script>
+</body>
+</html>

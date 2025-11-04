@@ -1,0 +1,65 @@
+.mslide img {
+  width: 100%;
+  display: block;
+}
+
+.story {
+  width: 100%;
+  background-color: #f36f21;
+}
+.story > h2 {
+  color: #fff;
+  font-size: 26px;
+  display: none;
+}
+.story > ul {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, 240px);
+}
+.story > ul > li {
+  margin: 0 auto;
+  width: 350px;
+  /* border:3px solid #000000; */
+  position: relative;
+  overflow: hidden;
+}
+.story img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+figcaption {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  left: 0px;
+  bottom: -60px;
+  transition: 1s;
+  padding: 0px 8px;
+}
+figcaption > h3 {
+  color: orangered;
+  font-size: 20px;
+}
+figcaption > span:last-child {
+  border: 1px solid #fff;
+  margin-left: 230px;
+}
+
+a:hover figcaption {
+  bottom: 0px;
+}
+
+.img02 {
+  grid-area: 1/2/3/2;
+}/*# sourceMappingURL=main.css.map */

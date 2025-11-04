@@ -1,0 +1,31 @@
+@charset "UTF-8";
+:root {
+  --t_color:#0f0;
+}
+
+ul > li {
+  color: var(--t_color);
+}
+
+/*메인컬러*/
+/*보조컬러*/
+/**/
+.p01 {
+  color: #333;
+  background: #ccc;
+  text-align: center;
+}
+
+pre {
+  background-color: #ccc;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+footer > address {
+  font-style: normal;
+  line-height: 230%;
+}/*# sourceMappingURL=style.css.map */

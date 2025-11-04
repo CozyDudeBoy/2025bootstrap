@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미에로화이바 반응형 웹</title>
+
+  <link rel="stylesheet" href="./css/mstyle.css" type="text/css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- 상단 헤더영역 -->
+  <header>
+    <div class="h_inner">
+
+      <h1 class="logo">
+        <a href="index.html" title="메인페이지로 바로가기">
+          <img src="./images/logo2.png" alt="상단로고">
+        </a>
+    </h1>
+    
+    <!-- 토글버튼 - 모바일 버전 -->
+    <div id="toggle">
+      <span>&nbsp;</span>
+      <span>&nbsp;</span>
+      <span>&nbsp;</span>
+    </div>
+    
+    <!-- 메인메뉴 -->
+    <nav class="gnb">
+      <ul>
+        <li>
+          <a href="#" title="">미에로 <i class="fas fa-angle-down"></i></a>
+          <ul class="sub">
+            <li>
+              <a href="#" title="">브랜드 스토리</a>
+            </li>
+            <li>
+              <a href="#" title="">식이섬유 스토리</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" title="">제품소개 <i class="fas fa-angle-down"></i></a>
+          <ul class="sub">
+            <li>
+              <a href="#" title="">미에로 화이바</a>
+            </li>
+          <li>
+            <a href="#" title="">미에로 화이바 SPARKLING ZERO SUGAR</a>
+          </li>
+          <li>
+            <a href="#" title="">헬씨 올리고</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" title="">미에로스토리 <i class="fas fa-angle-down"></i></a>
+        <ul class="sub">
+          <li>
+            <a href="#" title="">TV광고</a>
+            <a href="#" title="">인쇄광고</a>
+            <a href="#" title="">프로모션</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" title="">미에로이벤트 <i class="fas fa-angle-down"></i></a>
+        <ul class="sub">
+          <li>
+              <a href="#" title="">진행중인 이벤트</a>
+              <a href="#" title="">당첨자 발표</a>
+            </li>
+            </ul>
+          </li>
+        <li>
+          <a href="#" title="">공지사항</a>
+        </li>
+        <li>
+          <a href="#" title=""><i class="fas fa-bag-shopping"></i>공식쇼핑몰 </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  </header>
+  
+  <!-- 메인콘텐츠 영역 -->
+  <main>
+
+  </main>
+
+  <!-- 하단 푸터영역 -->
+  <footer>
+
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+$(document).ready(function(){
+
+  const gnb = $('.gnb');
+  const sub = $('.sub').hide();
+  
+  // 메뉴 클릭 시 해당 submenu만 토글
+  gnb.on('click', '> ul > li', function(e){
+    e.stopPropagation();//e.preventDefault는 고유 동작을 중단시키고,
+    //  e.stopPropagation 는 상위 엘리먼트들(부모요소)로의 이벤트 전파를 중단시킨다.
+    const currentSub = $(this).find('.sub'); ///currentSub는 선택한 요소의 자식 요소(.sub)를 선택함
+    $('.sub').not(currentSub).hide();//전체 서브메뉴 중에서 **지금 클릭한 메뉴의 서브메뉴를 제외한 나머지(sub)**는 다 닫음.
+    currentSub.stop().show();//클릭한 메뉴의 서브메뉴만 보이게(show) 함 .stop()은 애니메이션 중복 실행 방지용
+  });
+  
+  // 문서 아무 곳 클릭 시 모두 닫기
+  $(document).click(()=>sub.css('display','none'));
+});
+  
+</script>
+
+</body>
+</html>
