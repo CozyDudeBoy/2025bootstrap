@@ -1,0 +1,43 @@
+깃주소 
+https://github.com/jeon9897/bootstrap2025.git
+
+---------------------------------------------
+1. 처음 작업시
+    1) 전역구성 설정
+git  config  --global  core.autocrlf  true
+
+     2) 개인정보 입력
+git config --global user.name 'jeon'
+git config --global user.email 'jeon9897@naver.com'
+
+     3) 정보확인
+git config --global --list
+
+---------------------------------------------------
+  4) git init  (초기화 - 기록할 준비 마침, git폴더가 생성)
+  5) git status (정보확인, 파일목록 확인, 빨강색으로 표시)
+  6) git add . (프로젝트 폴더안에 모든 폴더, 파일 모두 추적 함)
+  7) git status (정보확인, 파일목록 확인, 초록색으로 표시)
+  8) git commit -m '기록할 메세지 내용'
+       git commit -m '부트스트랩 학습 목차'
+   => 글자 색상이 흰색으로 변경됨.
+  9) git log(기록 남긴 시점 확인)
+  10) git remote add origin 'git원격주소'
+         git remote add orgin https://github.com/jeon9897/bootstrap2025.git
+   11) git remote -v(연결확인)
+   12) git branch -m master main (브런치명 변경)
+   13) git push origin +main (파일, 폴더 업로드) 
+-----------------------------------------------------
+
+ 6) git add . (프로젝트 폴더안에 모든 폴더, 파일 모두 추적 함)
+ 8) git commit -m '기록할 메세지 내용'
+13)git push origin +main (파일, 폴더 업로드) 
+
+
+
+
+
+
+
+
+

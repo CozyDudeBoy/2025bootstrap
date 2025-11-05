@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01반응형 내비게이션</title>
+  <!-- 1. 부트스트랩 css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- 2. 부트스트랩 javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <style>
+    main{overflow-y:hidden;}
+    .logo{height:50px;}
+    #myCarousel{height:90vh;}
+    .carousel{
+      overflow: hidden;
+    }
+    .carousel-item{
+      position:relative;
+      height:90vh;
+      margin-bottom:10px;
+    }
+    .carousel-item h3{
+      position:absolute;
+      z-index:100;
+      font-size:1.5rem;
+      color:#fff;
+      left:50%;top:50%;
+      transform:translate(-50%, -50%);
+    }
+
+    .carousel-item img{width:100%;}
+        .container-fluid img{
+      width: 70%;
+    }
+          /* 태블릿 이하 */
+    @media (max-width: 1024px) {
+      #myCarousel{
+        height: 70vh;
+      }
+      .carousel-item{
+      position:relative;
+      height:70vh;
+      margin-bottom:10px;
+    }
+    
+    }
+        @media (max-width: 770px) {
+      #myCarousel{
+        height: 50vh;
+      }
+      .carousel-item{
+      position:relative;
+      height:50vh;
+      margin-bottom:10px;
+    }
+          .carousel-item h3{
+      position:absolute;
+      z-index:100;
+      font-size:1.5rem;
+      color:#fff;
+      left:50%;top:40%;
+      transform:translate(-50%, -40%);
+    }
+    }
+    /* 모바일 */
+    @media (max-width: 600px) {
+      #myCarousel{
+        height: 30vh;
+      }
+      .carousel-item{
+      position:relative;
+      height:50vh;
+      margin-bottom:10px;
+    }
+      .carousel-item h3{
+      position:absolute;
+      z-index:100;
+      font-size:1.5rem;
+      color:#fff;
+      left:50%;top:20%;
+      transform:translate(-50%, -20%);
+    }
+        .container-fluid a{
+      width: 70%;
+    }
+        .container-fluid img{
+      width: 70%;
+    }
+    }
+
+
+    /* 정보트론 */
+    .jumbotron{
+      padding-top:50px;
+      padding-bottom:50px;
+      margin-bottom:50px;
+    }
+    .jumbotron h2{
+      font-size:6rem;
+      margin-bottom:20px;
+    }
+    .jumbotron .txt01{
+      padding:10px 0px 30px 0px;
+    }
+    .bg-cover {
+      background-image: url('./img/Rectangle\ 16.png'); 
+      background-size: cover;      
+      background-position: center;   
+      background-repeat: no-repeat;  
+      color: white;                  
+      padding: 30px 20px;            
+    }
+
+
+    /* 2번 콘텐츠 서식 */
+    .cont2 img{border-radius:5%;}
+
+    .row img{
+      width: 100%;
+      border-radius: 5%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-dark">
+  <!-- 상단 헤더영역  -->
+  <header>
+    <!-- 내비게이션 바 -->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-md" aria-label="내비게이션 바">
+      <div class="container-fluid">
+        <a href="#" title="부트스트랩 로고">
+          <img src="./img/logo2.png" alt="" class="logo">
+        </a>
+
+        <!-- 모바일 해상도일 경우 나오는 전체메뉴 버튼 -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-label="전체메뉴" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- 가로메뉴 -->
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a href="#" title="" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link disabled">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">CRUD</a>
+              <ul class="dropdown-menu">
+                <li><a href="#" title="" class="dropdown-item">Create</a></li>
+                <li><a href="#" title="" class="dropdown-item">Read</a></li>
+                <li><a href="#" title="" class="dropdown-item">Update</a></li>
+                <li><a href="#" title="" class="dropdown-item">Delete</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- 검색폼 -->
+          <form role="search">
+            <input type="search" placeholder="search" aria-label="검색어 입력" class="form-control">
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main class="bg-dark">
+    <!-- 1. 메인슬라이드 -->
+    <article id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+      <!-- 콘트롤 버튼 -->
+      <div class="carousel-indicators">
+        <button type="button" class="active" aria-label="slide1" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-current="true"></button>
+        <button type="button" aria-label="slide2" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+        <button type="button" aria-label="slide3" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- 슬라이드 박스 -->
+      <div class="carousel_inner">
+        <div class="carousel-item active">
+          <h3 class="text-dark">We develop the best ideas in the direction you desire.</h3>
+          <img src="./img/slide1.png" alt="1">
+        </div>
+        <div class="carousel-item">
+          <h3 class="text-dark">Grounded in our creativity, you can reach your intended destination.</h3>
+          <img src="./img/slide2.png" alt="2">
+        </div>
+        <div class="carousel-item">
+          <h3 class="text-dark">by COZY DUDE.</h3>
+          <img src="./img/slide3.png" alt="3">
+        </div>
+      </div>
+
+      <!-- 좌측버튼 -->
+      <button type="button" class="carousel-control-prev" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <!-- 우측버튼 -->
+      <button type="button" class="carousel-control-next" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span aria-hidden="true" class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </article>
+
+    <!-- 2. 가로 3단 목록 콘텐츠 -->
+    <article class="container mt-5 mb-5">
+      <div class="row cont2">
+        <div class="col-lg-4 text-center">
+          <!-- <img src="https://placehold.co/150x150" alt=""> -->
+          <img src="./img/선행학습 1일차UX/Rectangle 17.png" alt="">
+          <h2 class="text-light">Interated <br>Creative</h2>
+          <p class="text-light">To achieve the brand's goals or solve problems, we leverage the infinite weapon of 'creativity'. The act of 'creativity', where new ideas intersect and erase familiar concepts, is indeed the cornerstone for impactful marketing. Now is the time to utilize creativity to knock on the hearts of consumers. </p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <!-- <img src="https://placehold.co/150x150" alt=""> -->
+          <img src="./img/선행학습 1일차UX/Rectangle 18.png" alt="">
+          <h2 class="text-light">Brand <br> Strategy</h2>
+          <p class="text-light">Branding strategy is akin to the art of courtship for gaining affection. It involves designing what to wear, how to feel, and what attitude to adopt. We propose a branding strategy that cultivates a brand persona that consumers can love, while refining steadfast brand beliefs that remain unchanged. </p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <!-- <img src="https://placehold.co/150x150" alt=""> -->
+          <img src="./img/선행학습 1일차UX/Rectangle 19.png" alt="">
+          <h2 class="text-light">Graphic <br> Design</h2>
+          <p class="text-light">Graphic design is a powerful messaging tool. It should serve as a means to not only showcase the image a brand aims to convey but also to appeal through symbols and colors. We meticulously plan down to each individual pixel to pursue perfection in detail for the finest visuals. </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. 점보트론 -->
+    <article class="container">
+      <div class="jumbotron text-center bg-cover rounded-3">
+        <h2 class="">Creative Designer <br>(Branding & Digital) <br> Join Our Team!</h2>
+        <p class="txt01">We are seeking a talented and motivated Creative Designer to join our team and help elevate our brand presence across both digital and physical channels. If you’re passionate about design, thrive in a collaborative environment, and want to make an impact, we'd love to hear from you.
+        </p>
+        <p><a href="#" role="button" title="더보기" class="btn btn-primary btn-mg">Learn More</a></p>
+      </div>
+    </article>
+
+    <!-- 4. 가로 4단 목록 콘텐츠 -->
+    <article class="container p-5">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <h2 class="text-light pb-2">Motion & <br> 3D Design</h2>
+          <img src="./img/create.png" alt="">
+          <p class="text-light pt-2">Motion and 3D design expand the realm of imagination. We create high-quality designs ranging from intricate motion graphics to 3D animations and interactive graphics. These become enduring branded content and assets that can be utilized for a long time.</p>
+          <a href="#" role="button" title="더보기" class="btn btn-light btn-line">Learn More</a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <h2 class="text-light pb-2">Film <br>Product</h2>
+          <img src="./img/read.png" alt="">
+          <p class="text-light pt-2">We communicate the brand's story through the language of film. Our films accurately capture the brand's message and dedicate all efforts to discovering key visuals that can stand out among the countless films in the world. We build impactful visuals on the foundation of the brand.</p>
+          <a href="#" role="button" title="더보기" class="btn btn-light btn-line">Learn More</a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <h2 class="text-light pb-2">Social & <br>Media</h2>
+          <img src="./img/update.png" alt="">
+          <p class="text-light pt-2">We propose flexible and efficient media planning that creates meaningful touchpoints with consumers in the marketing universe covering both online and offline. In addition to essential social channel management foundational to branding, we provide digital media solutions.</p>
+          <a href="#" role="button" title="더보기" class="btn btn-light btn-line">Learn More</a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <h2 class="text-light pb-2"><br>Approach</h2>
+          <img src="./img/delete.png" alt="">
+          <p class="text-light pt-2">We prioritize 'thinking' as the foundation of all creativity.</p>
+          <a href="#" role="button" title="더보기" class="btn btn-light btn-line">Learn More</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- 하단 푸터영역 -->
+  <footer class="container bg-dark pt-3 pb-3">
+    <div class="float-end">
+      <a href="#" title="위로 바로가기" class="text-decoration-none link-light">Top</a>
+    </div>
+
+    <p class="text-light">&copy;2025 COZYDUDE, Inc. &middot; 
+      <a href="#" title="이용약관" class="link-light text-decoration-none">Privacy</a>
+      &middot; 
+      <a href="#" title="정보" class="link-light text-decoration-none">Terms</a>
+      <br>
+      <a href="https://www.google.com/maps/place/%EA%B7%B8%EB%A6%B0%EC%BB%B4%ED%93%A8%ED%84%B0%EC%95%84%ED%8A%B8%ED%95%99%EC%9B%90+%EC%A2%85%EB%A1%9C%EC%BA%A0%ED%8D%BC%EC%8A%A4/data=!3m1!4b1!4m6!3m5!1s0x357ca2e7f16f756d:0x414573df934d0e95!8m2!3d37.5697291!4d126.9897183!16s%2Fg%2F1tlc5_wk?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D" title="정보" class="link-light text-decoration-none">Find Us : 37.569744, 126.989773 Seoul,Korea</a>
+      
+    </p>
+  </footer>
+
+</body>
+</html>
