@@ -36,7 +36,40 @@
         .container-fluid img{
       width: 70%;
     }
-          /* 태블릿 이하 */
+
+
+    /* 정보트론 */
+    .jumbotron{
+      padding-top:50px;
+      padding-bottom:50px;
+      margin-bottom:50px;
+    }
+    .jumbotron h2{
+      font-size:6rem;
+      margin-bottom:20px;
+    }
+    .jumbotron .txt01{
+      padding:10px 0px 30px 0px;
+    }
+    .bg-cover {
+      background-image: url('./img/Rectangle\ 16.png'); 
+      background-size: cover;      
+      background-position: center;   
+      background-repeat: no-repeat;  
+      color: white;                  
+      padding: 30px 20px;            
+    }
+
+    /* 2번 콘텐츠 서식 */
+    .cont2 img{border-radius:5%;}
+
+    .row img{
+      width: 100%;
+      border-radius: 5%;
+      cursor: pointer;
+    }
+
+              /* 태블릿 이하 */
     @media (max-width: 1024px) {
       #myCarousel{
         height: 70vh;
@@ -94,39 +127,10 @@
   .carousel-control-prev, .carousel-control-next{
       display: none;
     } 
-    }
-
-
-    /* 정보트론 */
-    .jumbotron{
-      padding-top:50px;
-      padding-bottom:50px;
-      margin-bottom:50px;
-    }
-    .jumbotron h2{
-      font-size:6rem;
+      .jumbotron h2{
+      font-size:20px;
       margin-bottom:20px;
     }
-    .jumbotron .txt01{
-      padding:10px 0px 30px 0px;
-    }
-    .bg-cover {
-      background-image: url('./img/Rectangle\ 16.png'); 
-      background-size: cover;      
-      background-position: center;   
-      background-repeat: no-repeat;  
-      color: white;                  
-      padding: 30px 20px;            
-    }
-
-
-    /* 2번 콘텐츠 서식 */
-    .cont2 img{border-radius:5%;}
-
-    .row img{
-      width: 100%;
-      border-radius: 5%;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -243,7 +247,7 @@
     <!-- 3. 점보트론 -->
     <article class="container">
       <div class="jumbotron text-center bg-cover rounded-3">
-        <h2 class="">Creative Designer <br>(Branding & Digital) <br> Join Our Team!</h2>
+        <h2>Creative Designer <br>(Branding & Digital) <br> Join Our Team!</h2>
         <p class="txt01">We are seeking a talented and motivated Creative Designer to join our team and help elevate our brand presence across both digital and physical channels. If you’re passionate about design, thrive in a collaborative environment, and want to make an impact, we'd love to hear from you.
         </p>
         <p><a href="#" role="button" title="더보기" class="btn btn-primary btn-mg">Learn More</a></p>
